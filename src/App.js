@@ -1,42 +1,35 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-class App extends Component {
+import Todo from './pages/Todo';
+import Redux from './pages/Redux';
 
-  constructor() {
-    super();
-    this.state = {
-      todo: "",
-      todos: ["Learning ReactJS", "Learning Redux", "Learning JS"]
-    }
-  }
-  
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({todos: [...this.state.todos, this.state.todo ], todo: ""});
-  }
+function App() {
+  return (
+    <Router>
+      <div className="wrapper">
+        <div className="sidebar col-2 bg-dark">
+          <nav>
+            <div className="sidebar-list">
+              <div>
+                <Link to="/">Todo</Link>
+              </div>
+              <div>
+                <Link to="/redux">Redux</Link>
+              </div>
+            </div>
+          </nav>
+        </div>
 
-  handleChange = (e) => {
-    e.preventDefault();
-    this.setState({todo: e.target.value })
-  }
-
-  render() {
-    const todoList = this.state.todos.map((todo, index) => {
-      return <li key={index}>{todo}</li>
-    });
-    return (
-      <div className="App">
-        <form>
-          <input type="text" value={this.state.todo} onChange={ this.handleChange } placeholder="Todo What?" />
-          <input type="submit" value="Add" onClick={this.handleSubmit}/>
-        </form>
-        <ul>
-          {todoList}
-        </ul>
+        <div className="content col-10">
+          <Route path="/" exact component={Todo} />
+          <Route path="/redux" component={Redux} />
+        </div>
       </div>
-    );
-  }
+    </Router>
+    )
 }
 
 export default App;
