@@ -4,4 +4,4 @@ function Todo({text}) {
 	return (<li>{text}</li>);
 }
 
-export Todo;
+export default Todo;

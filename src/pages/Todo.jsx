@@ -26,7 +26,8 @@ export default class Todo extends Component {
     });
     
     return (
-      <div className="App">
+      <div>
+        <h1>No Redux</h1>
         <form>
           <input type="text" className="form-control col-6 d-inline" value={this.state.todo} onChange={ this.handleChange } placeholder="Todo What?" />
           <input type="submit" className="btn btn-primary ml-2" value="Add" onClick={this.handleSubmit}/>

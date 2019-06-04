@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import Todo from './pages/Todo';
-import Redux from './pages/Redux';
+import TodoRedux from './pages/TodoRedux';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
                 <Link to="/">Todo</Link>
               </div>
               <div>
-                <Link to="/redux">Redux</Link>
+                <Link to="/todo-redux">Todo Redux</Link>
               </div>
             </div>
           </nav>
@@ -25,7 +25,7 @@ function App() {
 
         <div className="content col-10">
           <Route path="/" exact component={Todo} />
-          <Route path="/redux" component={Redux} />
+          <Route path="/todo-redux" component={TodoRedux} />
         </div>
       </div>
     </Router>
