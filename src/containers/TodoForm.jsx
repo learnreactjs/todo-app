@@ -19,7 +19,10 @@ class TodoForm extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		if(this.state.todo === "") return;
+		if(this.state.todo === "") {
+			alert("Enter your todo task?");
+			return;
+		};
 		this.props.addTodo(this.state.todo);
 		this.setState({todo: ""});
 	}

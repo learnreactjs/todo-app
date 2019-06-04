@@ -11,7 +11,10 @@ export default class Todo extends Component {
   
   handleSubmit = (e) => {
     e.preventDefault();
-    if(this.state.todo === "") return;
+    if(this.state.todo === "") {
+      alert("Enter todo task");
+      return;
+    }
     this.setState({todos: [...this.state.todos, this.state.todo ], todo: ""});
   }
 
