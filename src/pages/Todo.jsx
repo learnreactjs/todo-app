@@ -17,7 +17,7 @@ export default class Todo extends Component {
 
   handleChange = (e) => {
     e.preventDefault();
-    this.setState({todo: e.target.value })
+    this.setState({[e.target.id]: e.target.value })
   }
 
   render() {
@@ -29,7 +29,7 @@ export default class Todo extends Component {
       <div>
         <h1>No Redux</h1>
         <form>
-          <input type="text" className="form-control col-6 d-inline" value={this.state.todo} onChange={ this.handleChange } placeholder="Todo What?" />
+          <input type="text" className="form-control col-6 d-inline" id="todo" value={this.state.todo} onChange={ this.handleChange } placeholder="Todo What?" />
           <input type="submit" className="btn btn-primary ml-2" value="Add" onClick={this.handleSubmit}/>
         </form>
         <h3 className="text-left ml-2 mt-2">Todo List: </h3>
